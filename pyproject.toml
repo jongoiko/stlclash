@@ -1,0 +1,12 @@
+[project]
+name = "stlclash"
+version = "0.1.0"
+description = "A suite of control environment for multi-objective control with STL specifications"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.0",
+]
