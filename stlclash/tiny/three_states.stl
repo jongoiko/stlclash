@@ -1,0 +1,10 @@
+signal location
+
+left := location[t]<0
+right := location[t]>0
+
+ev_left := ev_[0, 10] left
+ev_right := ev_[0, 10] right
+
+alw_left := alw_[0, 10] left
+alw_right := alw_[0, 10] right
