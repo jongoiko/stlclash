@@ -1,11 +1,11 @@
 import gymnasium as gym
 
 
-def make_three_states_env() -> gym.Env:
+def make_three_states_env(**kwargs: dict) -> gym.Env:
     class StraightLineEnv(gym.Env):
         _agent_location: int
 
-        def __init__(self) -> None:
+        def __init__(self, **kwargs: dict) -> None:
             self.observation_space = gym.spaces.Discrete(3, start=-1)  # Position
             self.action_space = gym.spaces.Discrete(2)  # Left/Right
 
@@ -31,4 +31,4 @@ def make_three_states_env() -> gym.Env:
                 self._agent_location = 1
             return self._get_obs(), 0, False, False, self._get_info()
 
-    return StraightLineEnv()
+    return StraightLineEnv(**kwargs)
