@@ -6,7 +6,26 @@ from stlclash.tasks import register_tasks
 
 register(
     "three-states-v0",
-    entry_point="stlclash.tiny.three_states:make_three_states_env",
+    entry_point="stlclash.tiny.straight_line:make_straight_line_env",
     max_episode_steps=10,
+    kwargs=dict(
+        num_states=3,
+        circular=False,
+        start_location=1,
+    ),
 )
-register_tasks("three-states-v0", "three_states", Path("./"))
+register_tasks("three-states-v0", "three_states", Path(__file__).parent.resolve())
+
+register(
+    "four-states-circular-v0",
+    entry_point="stlclash.tiny.straight_line:make_straight_line_env",
+    max_episode_steps=24,
+    kwargs=dict(
+        num_states=4,
+        circular=True,
+        start_location=1,
+    ),
+)
+register_tasks(
+    "four-states-circular-v0", "four_states_circular", Path(__file__).parent.resolve()
+)

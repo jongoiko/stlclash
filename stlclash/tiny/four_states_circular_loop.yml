@@ -1,0 +1,15 @@
+specs: four_states_circular.stl
+action_names:
+  action: "action"
+obs_names:
+  loc_0: "1 if obs == 0 else 0"
+  loc_1: "1 if obs == 1 else 0"
+  loc_2: "1 if obs == 2 else 0"
+  loc_3: "1 if obs == 3 else 0"
+keep_old_reward: False
+multi_objective: True
+reward_formulas:
+  alw_visit_0:
+    past_horizon: 0
+  alw_visit_2:
+    past_horizon: 0

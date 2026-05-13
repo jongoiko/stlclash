@@ -1,7 +1,7 @@
 signal location
 
-left := location[t]<1
-right := location[t]>1
+left := location[t]<0
+right := location[t]>0
 
 ev_left := ev_[0, 10] left
 ev_right := ev_[0, 10] right

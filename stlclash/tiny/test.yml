@@ -1,0 +1,15 @@
+env_name: three-states-v0
+import_module: stlclash
+model_name: moql_three_states_ev
+model_use_specs: True
+cfg_specs: three_states_ev.yml
+cfg_train:
+  total_timesteps: 100_000
+  algo:
+    moql:
+      dyna: True
+      weights:
+        - 0.5
+        - 0.5
+  train_kwargs:
+    start_time: 0

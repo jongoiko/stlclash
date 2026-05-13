@@ -1,0 +1,7 @@
+signal loc_0, loc_1, loc_2, loc_3
+
+at_loc_0 := loc_0[t] > 0
+at_loc_2 := loc_2[t] > 0
+
+alw_visit_0 := alw_[0, 12] (ev_[0, 4] at_loc_0)
+alw_visit_2 := alw_[0, 12] (ev_[0, 4] at_loc_2)
