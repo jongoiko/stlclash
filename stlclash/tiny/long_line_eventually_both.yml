@@ -1,0 +1,16 @@
+specs: long_line.stl
+action_names:
+  action: "action"
+obs_names:
+  location: "obs"
+keep_old_reward: False
+multi_objective: True
+reward_formulas:
+  ev_left:
+    past_horizon: 0
+  ev_right:
+    past_horizon: 0
+obs_formulas:
+  ev_left:
+    obs_name: 'ev_left'
+    past_horizon: 0
