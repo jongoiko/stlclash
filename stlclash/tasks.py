@@ -1,12 +1,19 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+import yaml
+
 
 @dataclass
 class Task:
     id: str
     env_name: str
     specs_yaml_path: Path
+
+    def get_num_objectives(self) -> int:
+        with open(self.specs_yaml_path, "r") as f:
+            specs = yaml.load(f, Loader=yaml.SafeLoader)
+        return len(specs["reward_formulas"])
 
 
 TASKS: list[Task] = []
