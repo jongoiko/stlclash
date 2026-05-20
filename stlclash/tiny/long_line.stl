@@ -5,3 +5,5 @@ right := location[t]>18
 
 ev_left := ev_[0, 20] left
 ev_right := ev_[0, 20] right
+
+task_eventually_both := ev_left and ev_right

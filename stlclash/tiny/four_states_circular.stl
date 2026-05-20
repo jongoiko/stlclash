@@ -5,3 +5,5 @@ at_loc_2 := loc_cos[t] < -0.9
 
 alw_visit_0 := alw_[0, 12] (ev_[0, 4] at_loc_0)
 alw_visit_2 := alw_[0, 12] (ev_[0, 4] at_loc_2)
+
+task_loop := alw_visit_0 and alw_visit_2

@@ -5,3 +5,5 @@ obstacle := (loc_sin[t] < 0.35 and loc_sin[t] > 0.25) and (loc_cos[t] > 0.9)
 
 ev_left := ev_[0, 20] left
 never_obstacle := alw_[0, 20] (not obstacle)
+
+task_avoid_obstacle := ev_left and never_obstacle

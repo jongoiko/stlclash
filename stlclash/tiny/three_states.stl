@@ -8,3 +8,6 @@ ev_right := ev_[0, 10] right
 
 alw_left := alw_[0, 10] left
 alw_right := alw_[0, 10] right
+
+task_eventually_both := ev_left and ev_right
+task_always_both := alw_left and alw_right
