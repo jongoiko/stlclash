@@ -3,8 +3,5 @@ signal location
 left := location[t]<1
 right := location[t]>18
 
-wall := location[t]>0 and location[t]<2
-
-never_wall := alw_[0, 20] (not wall)
 ev_left := ev_[0, 20] left
 ev_right := ev_[0, 20] right
