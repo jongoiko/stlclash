@@ -10,3 +10,6 @@ dependencies = []
 dev = [
     "pre-commit>=4.6.0",
 ]
+
+[tool.mypy]
+disable_error_code = ["import-untyped"]

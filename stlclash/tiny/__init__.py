@@ -33,7 +33,7 @@ register_tasks(
 register(
     "long-line-v0",
     entry_point="stlclash.tiny.straight_line:make_straight_line_env",
-    max_episode_steps=20,
+    max_episode_steps=24,
     kwargs=dict(
         num_states=20,
         circular=False,
@@ -45,7 +45,7 @@ register_tasks("long-line-v0", "long_line", Path(__file__).parent.resolve())
 register(
     "long-line-loop-v0",
     entry_point="stlclash.tiny.straight_line:make_straight_line_env",
-    max_episode_steps=20,
+    max_episode_steps=24,
     kwargs=dict(
         num_states=20,
         circular=True,
