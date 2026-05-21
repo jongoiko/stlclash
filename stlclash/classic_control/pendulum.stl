@@ -1,0 +1,10 @@
+signal torque, cos_theta, sin_theta, theta_dot
+
+sin_theta_small := abs(sin_theta[t]) < .2
+cos_theta_high  := cos_theta[t] > .8 
+up_right := sin_theta_small and cos_theta_high
+
+balanced := ev_[0, 195] (alw_[0, 50] up_right)
+smooth_control := alw_[0, 195] (abs(torque[t]) < 1.0)
+
+task_smooth_stabilize := balanced and smooth_control
