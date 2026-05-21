@@ -12,3 +12,7 @@ reward_formulas:
     past_horizon: 0
   smooth_control:
     past_horizon: 0
+obs_formulas:
+  smooth_control:
+    obs_name: "smooth_control"
+    past_horizon: 0
