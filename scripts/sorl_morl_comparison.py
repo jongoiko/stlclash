@@ -15,7 +15,6 @@ def get_config(
     train_config: dict,
     training_timesteps: int,
     eval_episodes: int,
-    num_weight_trials: int,
     seed: int,
 ) -> dict:
     with open(task.specs_yaml_path, "r") as f:
@@ -33,7 +32,7 @@ def get_config(
             "algo": algo_config,
             "train_kwargs": train_config,
         },
-        "cfg_test": {"init_seeds": seed, "num_ep": eval_episodes // num_weight_trials},
+        "cfg_test": {"init_seeds": seed, "num_ep": eval_episodes},
     }
     # Monitor the same formulas that we use for training.
     config["cfg_specs"]["eval_formulas"] = {
@@ -53,7 +52,7 @@ def train_conjunction_policy(
     seed: int = 42,
 ) -> tuple[dict, Any]:
     config = get_config(
-        task, algo_config, train_config, training_timesteps, eval_episodes, 1, seed
+        task, algo_config, train_config, training_timesteps, eval_episodes, seed
     )
     task_name = task.id.split("/")[1]
     config["cfg_specs"]["reward_formulas"] = {f"task_{task_name}": {"past_horizon": 0}}
@@ -78,20 +77,19 @@ def mo_policy_search(
     algo_config: dict,
     train_config: dict,
     training_timesteps: int,
-    eval_episodes: int,
+    eval_episodes_per_trial: int,
     num_weight_trials: int,
     seed: int = 42,
 ) -> tuple[dict, Any]:
-    assert num_weight_trials <= eval_episodes
-    assert eval_episodes % num_weight_trials == 0
+    assert num_weight_trials <= eval_episodes_per_trial
+    assert eval_episodes_per_trial % num_weight_trials == 0
     assert training_timesteps % num_weight_trials == 0
     config = get_config(
         task,
         algo_config,
         train_config,
         training_timesteps,
-        eval_episodes,
-        num_weight_trials,
+        eval_episodes_per_trial,
         seed,
     )
     # The multi-objective policy is only trained once
@@ -124,20 +122,19 @@ def so_policy_search(
     algo_config: dict,
     train_config: dict,
     training_timesteps: int,
-    eval_episodes: int,
+    eval_episodes_per_trial: int,
     num_weight_trials: int,
     seed: int = 42,
 ) -> dict:
-    assert num_weight_trials <= eval_episodes
-    assert eval_episodes % num_weight_trials == 0
+    assert num_weight_trials <= eval_episodes_per_trial
+    assert eval_episodes_per_trial % num_weight_trials == 0
     assert training_timesteps % num_weight_trials == 0
     config = get_config(
         task,
         algo_config,
         train_config,
         training_timesteps,
-        eval_episodes,
-        num_weight_trials,
+        eval_episodes_per_trial,
         seed,
     )
     config["cfg_specs"]["multi_objective"] = False
