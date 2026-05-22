@@ -52,4 +52,4 @@ register(
         start_location=2,
     ),
 )
-register_tasks("long-line-loop-v0", "long_line_loop", Path(__file__).parent.resolve())
+register_tasks("long-line-loop-v0", "loop_long_line", Path(__file__).parent.resolve())
