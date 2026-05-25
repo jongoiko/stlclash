@@ -1,0 +1,13 @@
+signal accel, pos, vel
+
+reach_top_right := pos[t] > 0.43
+reach_top_left := pos[t] < -1.0
+
+ev_reach_top_right := ev_[0, 990] reach_top_right
+ev_reach_top_left := ev_[0, 990] reach_top_left
+
+alw_smooth_control := alw_[0, 990] (abs(accel[t]) < 0.5)
+
+task_reach_both_tops := ev_reach_top_left and ev_reach_top_right
+task_reach_right_smooth := ev_reach_top_right and alw_smooth_control
+task_reach_both_smooth := ev_reach_top_right and ev_reach_top_left and alw_smooth_control

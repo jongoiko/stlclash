@@ -1,0 +1,20 @@
+specs: mountain_car.stl
+action_names:
+  accel: "action[0]"
+obs_names:
+  pos: "obs[0]"
+  vel: "obs[1]"
+keep_old_reward: False
+multi_objective: True
+reward_formulas:
+  ev_reach_top_right:
+    past_horizon: 0
+  alw_smooth_control:
+    past_horizon: 0
+obs_formulas:
+  ev_reach_top_right:
+    obs_name: "ev_reach_top_right"
+    past_horizon: 0
+  alw_smooth_control:
+    obs_name: "alw_smooth_control"
+    past_horizon: 0
