@@ -32,7 +32,7 @@ def get_config(
             "algo": algo_config,
             "train_kwargs": train_config,
         },
-        "cfg_test": {"init_seeds": seed, "num_ep": eval_episodes},
+        "cfg_test": {"init_seeds": seed, "num_ep": eval_episodes, "num_steps": 1e7},
     }
     # Monitor the same formulas that we use for training.
     config["cfg_specs"]["eval_formulas"] = {
