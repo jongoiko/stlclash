@@ -27,5 +27,5 @@ obs_formulas:
     obs_name: "balanced"
     past_horizon: 0
   balanced_down:
-    obs_name: "balanced_top"
+    obs_name: "balanced_down"
     past_horizon: 0
