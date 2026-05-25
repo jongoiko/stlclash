@@ -1,0 +1,21 @@
+specs: pendulum.stl
+action_names:
+  torque: "action[0]"
+obs_names:
+  cos_theta: "obs[0]"
+  sin_theta: "obs[1]"
+  theta_dot: "obs[2]"
+keep_old_reward: False
+multi_objective: True
+reward_formulas:
+  swing_left:
+    past_horizon: 0
+  swing_right:
+    past_horizon: 0
+obs_formulas:
+  swing_left:
+    obs_name: "swing_left"
+    past_horizon: 0
+  swing_right:
+    obs_name: "swing_right"
+    past_horizon: 0

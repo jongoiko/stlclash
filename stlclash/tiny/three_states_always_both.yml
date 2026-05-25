@@ -10,3 +10,10 @@ reward_formulas:
     past_horizon: 0
   alw_right:
     past_horizon: 0
+obs_formulas:
+  ev_left:
+    obs_name: 'ev_left'
+    past_horizon: 0
+  ev_right:
+    obs_name: 'ev_right'
+    past_horizon: 0
