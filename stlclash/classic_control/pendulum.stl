@@ -20,3 +20,4 @@ swing_right := ev_[0, 195] (low_vel and sin_theta_right)
 task_smooth_stabilize := balanced and smooth_control
 task_swing_left_right := swing_left and swing_right
 task_balance_up_down := balanced and balanced_down
+task_four_directions := balanced and balanced_down and swing_left and swing_right
