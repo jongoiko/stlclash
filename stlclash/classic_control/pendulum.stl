@@ -6,8 +6,8 @@ cos_theta_low  := cos_theta[t] < -0.8
 up_right := sin_theta_small and cos_theta_high
 down := sin_theta_small and cos_theta_low
 
-balanced := ev_[0, 195] (alw_[0, 50] up_right)
-balanced_down := ev_[0, 195] (alw_[0, 50] down)
+balanced := ev_[0, 195] (alw_[0, 20] up_right)
+balanced_down := ev_[0, 195] (alw_[0, 20] down)
 smooth_control := alw_[0, 195] (abs(torque[t]) < 1.0)
 
 sin_theta_left := sin_theta[t] < -0.8

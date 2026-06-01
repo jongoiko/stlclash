@@ -16,6 +16,8 @@ obs_formulas:
   balanced:
     obs_name: "balanced"
     past_horizon: 0
+    semantics: bool
   balanced_down:
     obs_name: "balanced_down"
     past_horizon: 0
+    semantics: bool
