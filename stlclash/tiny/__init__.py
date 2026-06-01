@@ -35,7 +35,7 @@ register(
     entry_point="stlclash.tiny.straight_line:make_straight_line_env",
     max_episode_steps=24,
     kwargs=dict(
-        num_states=20,
+        num_states=10,
         circular=False,
         start_location=2,
     ),
@@ -47,7 +47,7 @@ register(
     entry_point="stlclash.tiny.straight_line:make_straight_line_env",
     max_episode_steps=24,
     kwargs=dict(
-        num_states=20,
+        num_states=10,
         circular=True,
         start_location=2,
     ),

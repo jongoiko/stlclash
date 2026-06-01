@@ -2,8 +2,8 @@ specs: long_line_loop.stl
 action_names:
   action: "action"
 obs_names:
-  loc_sin: "np.sin(2 * np.pi * obs / 20)"
-  loc_cos: "np.cos(2 * np.pi * obs / 20)"
+  loc_sin: "np.sin(2 * np.pi * obs / 10)"
+  loc_cos: "np.cos(2 * np.pi * obs / 10)"
 keep_old_reward: False
 multi_objective: True
 reward_formulas:
