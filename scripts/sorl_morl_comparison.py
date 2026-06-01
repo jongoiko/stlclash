@@ -32,6 +32,7 @@ def get_config(
             "total_timesteps": training_timesteps,
             "algo": algo_config,
             "train_kwargs": train_config,
+            "eval_freq": 1e7,
         },
         "cfg_test": {
             "init_seeds": seed,
