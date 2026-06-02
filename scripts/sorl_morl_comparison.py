@@ -73,8 +73,12 @@ def train_conjunction_policy(
     eval_formulas = tester.env.get_wrapper_attr("eval_formulas")
     sats = {}
     for f_name in eval_formulas.keys():
-        ratio_sat = res_all_ep["eval_formulas"][f_name]["ratio_init_sat"]
-        sats[f_name] = ratio_sat
+        ratio_sat = float(res_all_ep["eval_formulas"][f_name]["ratio_init_sat"])
+        mean_rob = float(res_all_ep["eval_formulas"][f_name]["mean_init_rob"])
+        sats[f_name] = {
+            "ratio_sat": ratio_sat,
+            "mean_rob": mean_rob,
+        }
     return sats, model
 
 
@@ -117,10 +121,19 @@ def mo_policy_search(
         res_all_ep = test_result["res_all_ep"]
         eval_formulas = tester.env.get_wrapper_attr("eval_formulas")
         for f_name in eval_formulas.keys():
-            ratio_sat = res_all_ep["eval_formulas"][f_name]["ratio_init_sat"]
-            prev_sat = satisfaction_rates.get(f_name, (0, None))[0]
-            if ratio_sat > prev_sat:
-                satisfaction_rates[f_name] = ratio_sat, weights_trial
+            ratio_sat = float(res_all_ep["eval_formulas"][f_name]["ratio_init_sat"])
+            mean_rob = float(res_all_ep["eval_formulas"][f_name]["mean_init_rob"])
+            if f_name not in satisfaction_rates:
+                satisfaction_rates[f_name] = {
+                    "ratio_sat": (0.0, None),
+                    "mean_rob": (-np.inf, None),
+                }
+            prev_sat = satisfaction_rates[f_name]["ratio_sat"][0]
+            if ratio_sat >= prev_sat:
+                satisfaction_rates[f_name]["ratio_sat"] = ratio_sat, weights_trial
+            prev_rob = satisfaction_rates[f_name]["mean_rob"][0]
+            if mean_rob >= prev_rob:
+                satisfaction_rates[f_name]["mean_rob"] = mean_rob, weights_trial
     return satisfaction_rates, model
 
 
@@ -168,9 +181,18 @@ def so_policy_search(
         res_all_ep = test_result["res_all_ep"]
         eval_formulas = tester.env.get_wrapper_attr("eval_formulas")
         for f_name in eval_formulas.keys():
-            ratio_sat = res_all_ep["eval_formulas"][f_name]["ratio_init_sat"]
-            prev_sat = satisfaction_rates.get(f_name, (0, None))[0]
-            if ratio_sat > prev_sat:
-                satisfaction_rates[f_name] = ratio_sat, weights_trial
+            ratio_sat = float(res_all_ep["eval_formulas"][f_name]["ratio_init_sat"])
+            mean_rob = float(res_all_ep["eval_formulas"][f_name]["mean_init_rob"])
+            if f_name not in satisfaction_rates:
+                satisfaction_rates[f_name] = {
+                    "ratio_sat": (0.0, None),
+                    "mean_rob": (-np.inf, None),
+                }
+            prev_sat = satisfaction_rates[f_name]["ratio_sat"][0]
+            if ratio_sat >= prev_sat:
+                satisfaction_rates[f_name]["ratio_sat"] = ratio_sat, weights_trial
+            prev_rob = satisfaction_rates[f_name]["mean_rob"][0]
+            if mean_rob >= prev_rob:
+                satisfaction_rates[f_name]["mean_rob"] = mean_rob, weights_trial
         del trainer, tester
     return satisfaction_rates
