@@ -1,7 +1,7 @@
 [project]
 name = "stlclash"
 version = "0.1.0"
-description = "A suite of control environment for multi-objective control with STL specifications"
+description = "A benchmark and suite of control environments for multi-objective control with STL specifications"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -18,5 +18,5 @@ dev = [
 disable_error_code = ["import-untyped"]
 
 [tool.uv.sources]
-rlrom = { git = "https://github.com/decyphir/rlrom.git" }
 morl-baselines = { git = "https://github.com/LucasAlegre/morl-baselines.git" }
+rlrom = { git = "https://github.com/decyphir/rlrom.git", branch = "multi-objective" }

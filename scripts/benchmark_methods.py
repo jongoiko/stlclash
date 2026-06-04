@@ -3,9 +3,9 @@ import pickle
 import pandas as pd
 
 import stlclash
-from .sorl_morl_comparison import mo_policy_search
-from .sorl_morl_comparison import so_policy_search
-from .sorl_morl_comparison import train_conjunction_policy
+from scripts.sorl_morl_comparison import mo_policy_search
+from scripts.sorl_morl_comparison import so_policy_search
+from scripts.sorl_morl_comparison import train_conjunction_policy
 
 
 DEFAULT_TRAINING_STEPS = 100_000
@@ -186,5 +186,5 @@ def main() -> None:
         pickle.dump(results, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     main()
