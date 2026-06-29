@@ -14,7 +14,7 @@ reward_formulas:
 obs_formulas:
   ev_reach_top_right:
     obs_name: "ev_reach_top_right"
-    past_horizon: 0
+    past_horizon: 990
   ev_reach_top_left:
     obs_name: "ev_reach_top_left"
-    past_horizon: 0
+    past_horizon: 990

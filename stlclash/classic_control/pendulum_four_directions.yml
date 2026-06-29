@@ -19,15 +19,15 @@ reward_formulas:
 obs_formulas:
   swing_left:
     obs_name: "swing_left"
-    past_horizon: 0
+    past_horizon: 195
   swing_right:
     obs_name: "swing_right"
-    past_horizon: 0
+    past_horizon: 195
   balanced:
     obs_name: "balanced"
-    past_horizon: 0
+    past_horizon: 215
     semantics: bool
   balanced_down:
     obs_name: "balanced_down"
-    past_horizon: 0
+    past_horizon: 215
     semantics: bool

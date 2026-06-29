@@ -15,4 +15,4 @@ reward_formulas:
 obs_formulas:
   smooth_control:
     obs_name: "smooth_control"
-    past_horizon: 0
+    past_horizon: 195

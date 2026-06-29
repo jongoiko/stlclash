@@ -13,7 +13,7 @@ reward_formulas:
 obs_formulas:
   ev_left:
     obs_name: 'ev_left'
-    past_horizon: 0
+    past_horizon: 20
   ev_right:
     obs_name: 'ev_right'
-    past_horizon: 0
+    past_horizon: 20

@@ -15,7 +15,7 @@ reward_formulas:
 obs_formulas:
   swing_left:
     obs_name: "swing_left"
-    past_horizon: 0
+    past_horizon: 195
   swing_right:
     obs_name: "swing_right"
-    past_horizon: 0
+    past_horizon: 195

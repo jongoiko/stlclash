@@ -14,7 +14,7 @@ reward_formulas:
 obs_formulas:
   ev_left:
     obs_name: 'ev_left'
-    past_horizon: 0
+    past_horizon: 20
   never_obstacle:
     obs_name: 'never_obstacle'
-    past_horizon: 0
+    past_horizon: 20
