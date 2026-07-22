@@ -8,7 +8,7 @@ from scripts.sorl_morl_comparison import so_policy_search
 from scripts.sorl_morl_comparison import train_conjunction_policy
 
 
-DEFAULT_TRAINING_STEPS = 100_000
+DEFAULT_TRAINING_STEPS = 500_000
 DEFAULT_EVAL_EPISODES = 1000
 DEFAULT_WEIGHT_TRIALS = 20
 DEFAULT_SEED = 42
