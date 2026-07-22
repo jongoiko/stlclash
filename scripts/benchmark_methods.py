@@ -57,7 +57,11 @@ def get_task_settings() -> pd.DataFrame:
         },
         "mpmoql": {
             "type": "multi",
-            "conf": {"seed": DEFAULT_SEED},
+            "conf": {
+                "seed": DEFAULT_SEED,
+                "initial_epsilon": 1.0,
+                "weight_selection_algo": "gpi-ls",
+            },
             "train_kwargs": {
                 "timesteps_per_iteration": 2_000,
             },
@@ -93,8 +97,13 @@ def get_task_settings() -> pd.DataFrame:
             if "tiny" in str(task.specs_yaml_path):
                 if cfg["type"] == "single" and algo != "qlearning":
                     append = False
-                if cfg["type"] == "multi" and (algo != "mpmoql" and algo != "pql"):
-                    append = False
+                if cfg["type"] == "multi":
+                    if algo != "mpmoql" and algo != "pql":
+                        append = False
+                    elif algo == "mpmoql":
+                        train["timesteps_per_iteration"] = conf[
+                            "epsilon_decay_steps"
+                        ] = tcfg["training_steps"] // tcfg["weight_trials"]
             else:
                 if cfg["type"] == "single" and algo == "qlearning":
                     append = False
