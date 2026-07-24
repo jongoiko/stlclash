@@ -55,6 +55,11 @@ def get_task_settings() -> pd.DataFrame:
             "conf": {"seed": DEFAULT_SEED},
             "train_kwargs": {},
         },
+        "pql": {
+            "type": "multi",
+            "conf": {"seed": DEFAULT_SEED},
+            "train_kwargs": {},
+        },
         "mpmoql": {
             "type": "multi",
             "conf": {
@@ -113,6 +118,8 @@ def get_task_settings() -> pd.DataFrame:
                 train["ref_point"] = [-100] * task.get_num_objectives()
             if cfg["type"] == "multi" and algo == "mpmoql":
                 train["timesteps_per_iteration"] = training_steps // weight_trials
+            if cfg["type"] == "multi" and algo == "pql":
+                conf["ref_point"] = [-100] * task.get_num_objectives()
             if append:
                 rows.append(
                     {
